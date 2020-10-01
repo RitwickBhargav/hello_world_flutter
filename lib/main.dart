@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 void main()
 {
-  runApp(new MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,7 +10,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "My App",
-      home: new HomePage(),
+      theme: ThemeData.dark(),
+      home: HomePage(),
     );
   }
 }
@@ -36,20 +37,26 @@ void _changeText()
   Widget _bodyWidget(){
   return Container(
     padding: const EdgeInsets.all(8.0),
-    child: new Center(
-      child: new Column(
+    child: Center(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          new Text(myText, style: new TextStyle(
-            fontSize: 22.0
-          )),
-          new RaisedButton(
-            child: new Text("Click", style: new TextStyle(
-              color: Colors.white,
-            ),),
+            Text(
+              myText,
+              style: TextStyle(
+                fontSize: 22.0,
+              ),
+            ),
+            RaisedButton(
+              child: Text(
+                "Click", 
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
             onPressed: _changeText,
             color: Colors.blue,
-          )
+            ),
         ],
       )
     )
@@ -59,8 +66,8 @@ void _changeText()
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: new AppBar(
-        title: new Text("Home Page"),
+      appBar: AppBar(
+        title: Text("Home Page"),
       ),
       body: _bodyWidget(),
     );
